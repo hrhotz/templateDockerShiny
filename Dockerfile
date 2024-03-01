@@ -9,8 +9,7 @@ ENV SHINY_OUTPUT_DIR="/shiny_output"
 RUN Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); install.packages('BiocManager')" && \
     Rscript -e "BiocManager::install(ask=FALSE)" && \
     # install the package itself
-    Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); options(Ncpus = 2); BiocManager::install('ideal', dependencies=TRUE)" && \
-    Rscript -e "devtools::install_github('csoneson/templateDockerShinyPkg', ref = 'intogalaxy')"
+    Rscript -e "BiocManager::install('csoneson/templateDockerShinyPkg')"
 
 USER root
 
