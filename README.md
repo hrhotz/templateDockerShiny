@@ -39,22 +39,28 @@ The plot can be saved (this action is logged as well)
 
 # building the container
 
-docker build https://github.com/docker/rootfs.git#container:docker
-
-
+docker build -t templatedockershiny:latest
 
 
 # running the container
 
+mkdir -p /full_path/my_host_inputs/ 
+mkdir -p /full_path/my_host_outputs/
 
-docker run -p 8080:3838 -v ./my_host_inputs/:/shiny_input -v ./my_host_outputs/:/shiny_output quay.io/TBD/templateDockerShiny:v0.1 
-
-
+docker run -p 8080:3838 -v /full_path/my_host_inputs/:/shiny_input -v /full_path/my_host_outputs/:/shiny_output templatedockershiny
 
 
 for an interactive session, you can execute:
 
-docker run  -i -t -p 8080:3838 -v ./my_host_inputs/:/shiny_input -v ./my_host_outputs/:/shiny_output quay.io/TBD/templateDockerShiny:v0.1  /bin/bash 
+docker run  -i -t -p 8080:3838 -v /full_path/my_host_inputs/:/shiny_input -v /full_path/my_host_outputs/:/shiny_output templatedockershiny bash 
+
+Rscript /app_setup.R
+
+
+# running the published container
+
+docker run -p 8080:3838 -v /full_path/my_host_inputs/:/shiny_input -v /full_path/my_host_outputs/:/shiny_output quay.io/TBD/templatedockershiny:latest
+
 
 
 
