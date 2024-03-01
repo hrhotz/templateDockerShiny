@@ -29,12 +29,11 @@ if(exists("out")) {
     # there is data, but the output folder is mis-specified\
     # do nothing
       
-    } else {
+   } else {
       saveRDS(out, file = file.path(output_folder, "template_output.rds"))
       write.table(out$log, file = file.path(output_folder, "template_log.tab"), row.names = FALSE, quote = FALSE, col.names = FALSE)
       
-    }
-  } else {
-    # do nothing
   }
+} else {
+  # do nothing
 }
