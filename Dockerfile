@@ -1,6 +1,6 @@
 # ARG 
 
-FROM bioconductor/bioconductor_docker:RELEASE_3_18
+FROM bioconductor/bioconductor_docker:RELEASE_3_19
 
 ENV SHINY_INPUT_DIR="/shiny_input"
 ENV SHINY_OUTPUT_DIR="/shiny_output"
