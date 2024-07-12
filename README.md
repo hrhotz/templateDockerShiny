@@ -109,4 +109,3 @@ docker run -p 8080:3838 -v /full_path/my_host_inputs/:/shiny_input -v /full_path
 
 
 
-
